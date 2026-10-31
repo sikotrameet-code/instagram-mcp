@@ -13,6 +13,8 @@ from .instagram_mcp_server import InstagramMCPServer
 
 # Create the existing server and register all its tools.
 mcp_server = InstagramMCPServer()
+import mcp
+print("INSTALLED MCP VERSION:", mcp.__version__)
 
 # Create the Streamable HTTP application.
 security = TransportSecuritySettings(
