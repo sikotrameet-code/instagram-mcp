@@ -34,4 +34,4 @@ from .models.instagram_models import (
 logger = structlog.get_logger(__name__)
 
 # Global Instagram client
-instagram_client: Optional[InstagramClient] = N
+instagram_client: Optional[InstagramClient] = None
