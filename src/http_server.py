@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from starlette.applications import Starlette
 from starlette.routing import Mount
+from mcp.server.transport_security import TransportSecuritySettings
 
 from . import instagram_mcp_server as instagram_module
 from .instagram_client import InstagramClient
@@ -14,8 +15,16 @@ from .instagram_mcp_server import InstagramMCPServer
 mcp_server = InstagramMCPServer()
 
 # Create the Streamable HTTP application.
-mcp_http_app = mcp_server.server.streamable_http_app()
+security = TransportSecuritySettings(
+    allowed_hosts=[
+        "instagram-mcp-8w5o.onrender.com",
+        "instagram-mcp-8w5o.onrender.com:*",
+    ],
+)
 
+mcp_http_app = mcp_server.server.streamable_http_app(
+    transport_security=security
+)
 
 @asynccontextmanager
 async def lifespan(app):
