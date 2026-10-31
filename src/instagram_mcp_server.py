@@ -13,7 +13,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Sequence
 
 import structlog
-from mcp.server import Server
+from mcp.server.lowlevel import Server
 from mcp.server.lowlevel.server import NotificationOptions
 from mcp.server.models import InitializationOptions
 from mcp.server.stdio import stdio_server
