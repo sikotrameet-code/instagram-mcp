@@ -13,6 +13,8 @@ from .instagram_mcp_server import InstagramMCPServer
 
 # Create the existing server and register all its tools.
 mcp_server = InstagramMCPServer()
+print("SERVER CLASS:", type(mcp_server.server))
+print("HAS HTTP METHOD:", hasattr(mcp_server.server, "streamable_http_app"))
 from importlib.metadata import version
 print("INSTALLED MCP VERSION:", version("mcp"))
 
